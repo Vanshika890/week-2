@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+// Function to transpose a matrix
+void transpose(int matrix[][100], int n, int m, int ans[][100]) {
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            ans[j][i] = matrix[i][j];
+        }
+    }
+}
+
+// Function to print a matrix
+void printMatrix(int matrix[][100], int rows, int cols) {
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << "\n";
+    }
+}
+
+int main() {
+    int n, m;
+    cout << "Enter number of rows and columns: ";
+    cin >> n >> m;
+    
+    // Declare matrices
+    int matrix[100][100];
+    int ans[100][100]; // Adjust the size if needed
+    
+    // Input matrix elements
+    cout << "Enter the matrix elements:\n";
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cin >> matrix[i][j];
+        }
+    }
+    
+    // Transpose the matrix
+    transpose(matrix, n, m, ans);
+    
+    // Output the transposed matrix
+    cout << "Transposed matrix:\n";
+    printMatrix(ans, m, n); // Note the swapped dimensions
+
+    return 0;
+}
